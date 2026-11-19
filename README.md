@@ -6,7 +6,7 @@
 >
 > Reviewed 19 November 2026. Two experiments have finished: a verification battery (18 November, n = 45 per arm) and an open-audit battery with planted defects (19 November, 28 seeded rounds and 8 controls). Every number below was measured on the date and sample size stated.
 
-[How it works](docs/how-it-works.md) · [What we learned](docs/what-we-learned.md) · [Validation and results](docs/validation.md) · [Disclosure policy](docs/public-disclosure-policy.md) · [Ariamir showcase](https://github.com/remixazkA/ariamir-showcase)
+[How it works](docs/how-it-works.md) · [What we learned](docs/what-we-learned.md) · [Validation and results](docs/validation.md) · [Questions that proved useful](docs/useful-questions.md) · [Disclosure policy](docs/public-disclosure-policy.md) · [Ariamir showcase](https://github.com/remixazkA/ariamir-showcase)
 
 ## What it is
 
