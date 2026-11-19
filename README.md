@@ -12,7 +12,7 @@
 
 SuperMoE is a review panel. Several open-weight language models, running on two GPUs, answer the same question about a codebase **blind**, without seeing each other's answers. A program then checks every quote they cite against the real files. The answers are grouped, a weighted decision is taken, and the panel proposes new questions of its own to settle whatever remains in dispute.
 
-It is used on Ariamir, a local-first AI workspace, but the idea is general: a panel that reviews code and is itself reviewed.
+It is used on [Ariamir](https://github.com/remixazkA/ariamir-showcase), a local-first AI workspace, but the idea is general: a panel that reviews code and is itself reviewed.
 
 ## Why it exists
 
