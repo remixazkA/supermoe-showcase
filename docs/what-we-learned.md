@@ -1,6 +1,6 @@
 # What we learned
 
-All figures were measured on 18 November 2026 by reading existing records of the panel's runs. No new model calls were made for these measurements. The validation experiment is separate and still running (see [Validation](validation.md)).
+Sections 1 to 3 were measured on 18 November 2026 by reading existing records of the panel's runs, with no new model calls. Sections 4 to 6 come from the two validation experiments of 18 and 19 November 2026 (see [Validation and results](validation.md)).
 
 ## 1. The panel was fooled by absence claims
 
@@ -27,14 +27,51 @@ What the rule cannot do is notice that two groups **contradict** each other. The
 
 **Reading:** merging is nearly mechanical; spotting contradiction is judgement. A hybrid (rule for grouping, model only for contradictions) is a candidate, adopted only if it finds as many seeded errors as the current method.
 
-This does not say which grouping is *better*. Accepted is not true, so that question goes to the validation experiment.
+This does not say which grouping is *better*. Accepted is not true, so that question went to the validation experiment.
+
+**Answered on 18 November:** rule-based grouping matched or beat model grouping on verification questions: 32 vs. 31 correct, 3 vs. 4 wrong, 51 vs. 67 GPU-s, n = 45. It has been the default since 19 November, and groups no longer mix opposite verdicts.
 
 ## 3. The question generator wastes a lot
 
 Almost half of the questions the panel proposes for itself are rejected by its own validator (files that do not exist, quotes that cannot be found). Whether a mechanical template could replace some of the rest is still open.
 
+## 4. To check a claim, one reviewer is enough
+
+On 45 verification questions with a mechanical oracle, one reviewer (a Qwen 27B model on the A40) got 43 right and 2 wrong, at 23 GPU-s per question. The full panel got 32 right and 8 wrong, at 420 GPU-s.
+
+What cost the panel quality was the coordination layer, not the voices:
+
+- grouping merged opposite verdicts;
+- weak voices that agreed outvoted a correct minority;
+- the accepted-group rule cannot accept "cannot tell".
+
+The same voices voting directly on their verdicts got 45 of 45.
+
+**Adopted:** for verification, one reviewer that escalates to a three-voice vote only when it is in doubt.
+
+## 5. To search for defects, three voices that vote find more
+
+In open audits with planted defects, the reviewer does not know what it is looking for.
+
+| Arm | Planted defects found (of 28) | False alarms (of 8 controls) | GPU-s per round |
+|---|---|---|---|
+| One reviewer | 20 | 0 | 56 |
+| Three voices, vote | 24 | 1 (+1 dubious) | 71 |
+| Three voices, accepted-group rule | 13 | 1 | 71 |
+
+So diversity does help here, but only when the voices vote. One reviewer is not enough to search, and the escalation policy built for verification never triggered: the reviewer was never in doubt.
+
+## 6. More voices, more noise
+
+The full panel voting found 25 of 28: one more than three voices. It raised 5 false alarms in 8 controls, against 1, and used about seven times the GPU time.
+
+On this battery, going from three voices to the full panel added more noise than findings. The full panel stays available for maximum coverage on request, not as the default.
+
+Along the way the voices also found 4 previously unknown real defects in code nobody had seeded. Their details stay private.
+
 ## What we do not know yet
 
-- Whether 13 voices beat 1 or 3 on real errors found and false alarms.
-- Whether adaptive scaling (1, then 3, then 13 only on disagreement) is enough.
-- Any validation result. Validation in progress; results will be published when the three repetitions finish.
+- **Whether the three-voice vote holds** on a second battery with new planted defects that were not used for any tuning: n = 28 is small.
+- **Whether the candidate models** now in testing lower the panel's false alarms without losing planted defects. See [Models in testing](../README.md#models-in-testing).
+- **Whether a weighted vote beats equal weights** in open audits.
+- **Defects the panel misses entirely.** A removed `await` was never found by any arm.

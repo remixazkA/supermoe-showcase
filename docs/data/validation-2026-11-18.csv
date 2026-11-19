@@ -1,0 +1,7 @@
+arm,description,n,correct,wrong,abstained,correct_labels_only,wrong_labels_only,abstained_labels_only,gpu_s_per_question,gpu_s_per_correct,gpu_s_approximate
+A,one reviewer,45,43,2,0,45,0,0,23,24,false
+B,"3 voices, model grouping",45,31,4,10,35,0,10,67,97,false
+C,"full panel (up to 12), model grouping",45,32,8,5,36,4,5,420,590,false
+D,"3 voices, rule-based grouping",45,32,3,10,35,0,10,51,71,false
+B_vote,"3 voices, vote (exploratory)",45,45,0,0,45,0,0,54,,true
+C_vote,"full panel, vote (exploratory)",45,45,0,0,45,0,0,360,,true

@@ -1,0 +1,15 @@
+mutation,category,A_found,policy_found,B_found,B_vote_found,C_found,C_vote_found,repetitions
+M01,Off-by-one boundary,2,2,1,2,2,2,2
+M02,Inverted condition,2,2,2,2,2,2,2
+M03,Inverted comparison,2,2,1,2,2,2,2
+M04,Missing await,0,0,0,0,0,0,2
+M05,&& instead of ||,2,2,2,2,2,2,2
+M06,Min and max swapped,0,0,0,2,1,2,2
+M07,Wrong sign or operator,2,2,2,2,2,2,2
+M08,Wrong variable,1,1,0,1,1,2,2
+M09,Constant contradicts its comment,2,2,2,2,2,2,2
+M10,Wrong return value on an error path,2,2,2,2,2,2,2
+M11,Sanitization removed,1,1,0,2,0,2,2
+M12,Early return removed,2,2,1,2,1,2,2
+M13,Swapped arguments,0,0,0,1,0,1,2
+M14,Boundary: < instead of <=,2,2,0,2,2,2,2

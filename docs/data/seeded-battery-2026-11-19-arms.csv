@@ -1,0 +1,7 @@
+arm,description,voices,decision,seeded_found,seeded_rounds,controls_false_positive,controls_dubious,controls_real_unseeded_defect,control_rounds,gpu_s_per_round
+A,one reviewer,1,its own verdict,20,28,0,0,1,8,56
+policy,"one reviewer, escalates to 3 on doubt",1 (3 on doubt),its own verdict; vote of 3 if in doubt,20,28,1,0,0,8,56
+B,"3 voices, accepted-group rule",3,grouping + accepted-group rule,13,28,1,0,0,8,71
+B_vote,"3 voices, vote on verdicts",3,majority vote on verdicts,24,28,1,1,1,8,71
+C,"full panel, accepted-group rule",8-11,grouping + accepted-group rule,19,28,3,0,0,8,502
+C_vote,"full panel, vote on verdicts",8-11,majority vote on verdicts,25,28,5,0,2,8,502
